@@ -1,0 +1,47 @@
+@model IEnumerable<FMS.Models.Transactiondetail>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Income)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expense.Expenseid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Income.Incomeid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.Transactionid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Transactionid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Transactionid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Transactionid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

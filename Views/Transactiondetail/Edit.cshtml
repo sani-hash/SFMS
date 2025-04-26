@@ -1,0 +1,39 @@
+@model FMS.Models.Transactiondetail
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Transactiondetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Transactionid" />
+            <div class="form-group">
+                <label asp-for="Incomeid" class="control-label"></label>
+                <select asp-for="Incomeid" class="form-control" asp-items="ViewBag.Incomeid"></select>
+                <span asp-validation-for="Incomeid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenseid" class="control-label"></label>
+                <select asp-for="Expenseid" class="form-control" asp-items="ViewBag.Expenseid"></select>
+                <span asp-validation-for="Expenseid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
